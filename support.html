@@ -2,23 +2,132 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ustory Support / 技术支持</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ustory 技术支持 / Support</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 600px; margin: 0 auto; text-align: center; color: #1d1d1f; }
-        h1 { font-size: 24px; margin-top: 50px; }
-        p { font-size: 16px; color: #3a3a3c; margin-top: 20px; }
-        .email { font-size: 20px; font-weight: bold; color: #007aff; margin: 20px 0; }
-        .en { color: #86868b; font-size: 15px; margin-top: 8px; display: block; }
+        :root {
+            --apple-text-base: #1d1d1f;
+            --apple-text-secondary: #6e6e73;
+            --apple-bg: transparent;
+            --apple-card-bg: #f2f2f7;
+            --apple-accent: #0071e3;
+            --apple-accent-hover: #0077ED;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --apple-text-base: #f5f5f7;
+                --apple-text-secondary: #86868b;
+                --apple-card-bg: #1c1c1e;
+                --apple-accent: #2997ff;
+                --apple-accent-hover: #3E9EFF;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg); 
+            color: var(--apple-text-base);
+            margin: 0;
+            padding: 40px 20px 80px 20px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: var(--apple-text-secondary);
+            margin-bottom: 40px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        p {
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: -0.1px;
+            color: var(--apple-text-base);
+        }
+
+        /* 英文对照文本样式 */
+        .en-text {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+            display: block;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .contact-card {
+            background-color: var(--apple-card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin: 40px auto;
+            max-width: 400px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+        }
+
+        /* 可点击的邮箱按钮 */
+        .email-btn {
+            display: inline-block;
+            background-color: var(--apple-accent);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 24px;
+            margin-bottom: 12px;
+            transition: background-color 0.2s ease;
+        }
+
+        .email-btn:active {
+            background-color: var(--apple-accent-hover);
+        }
+
+        .tips {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
-    <h1>Ustory 官方技术支持 <br><span style="font-size: 18px; color: #86868b;">Official Support</span></h1>
-    
-    <p>如果您在使用过程中遇到任何 Bug、内购订阅问题，欢迎随时通过以下邮箱与开发者取得联系。<br>
-    <span class="en">If you encounter any bugs, subscription issues, or have feature requests, please feel free to contact the developer via the email below.</span></p>
-    
-    <div class="email">remember9102@163.com</div> <p>我会在收到邮件后的 1-2 个工作日内回复您。<br>
-    <span class="en">I will personally reply to you within 1-2 business days.</span></p>
+
+    <h1>Ustory 官方技术支持</h1>
+    <div class="subtitle">Official Support & Feedback</div>
+
+    <p>
+        感谢您使用 Ustory！无论是遇到技术故障、内购订阅疑问，还是有任何让产品变得更好的新功能建议，都欢迎随时与我联系。
+        <span class="en-text">Thank you for using Ustory! Whether you encounter technical issues, subscription inquiries, or have feature requests to make the app better, please feel free to reach out.</span>
+    </p>
+
+    <div class="contact-card">
+        <!-- href="mailto:..." 可以让用户点击后直接唤起系统的邮件 App -->
+        <a href="mailto:remember9102@163.com?subject=Ustory%20App%20Support" class="email-btn">
+            remember9102@163.com
+        </a>
+        <p style="margin-bottom: 0; font-size: 14px;">
+            我会在收到邮件后的 1-2 个工作日内亲自回复您。
+            <span class="en-text">I will personally reply to you within 1-2 business days.</span>
+        </p>
+    </div>
+
+    <div class="tips">
+        提示：为了帮助我更快地定位和解决问题，发送邮件时请尽量附上您的<b>设备型号</b>（如 iPhone 16 Pro）与 <b>iOS 系统版本</b>。
+        <span class="en-text">Tip: To help me locate and resolve issues faster, please include your <b>Device Model</b> and <b>iOS Version</b> in your email.</span>
+    </div>
+
 </body>
 </html>
