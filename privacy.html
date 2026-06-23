@@ -127,43 +127,43 @@
             <span class="en-text">Local Computation: Incremental gallery scanning, metadata organization, and spatial-temporal clustering analysis are executed entirely offline utilizing your device's local processor. No image or video stream is ever transmitted over the network.</span>
         </li>
         <li><strong>沙盒持久化：</strong> 生成的回忆事件卡片、人物昵称及随笔备忘，均通过加密技术保存在您本机的 SwiftData 沙盒数据库内，数据的控制权完全属于您的物理设备。
-            <span class="en-text">Sandbox Storage: Generated memory records, companion profiles, and diaries are persisted securely within your device's local SwiftData database container. Full data control remains strictly inside your physical hardware.[cite: 3, 4]</span>
+            <span class="en-text">Sandbox Storage: Generated memory records, companion profiles, and diaries are persisted securely within your device's local SwiftData database container. Full data control remains strictly inside your physical hardware.</span>
         </li>
     </ul>
 
     <h2>3. 地理位置反查服务的隐私合规 (Reverse Geocoding & Apple Maps Service)</h2>
     <p>
-        为了向您呈现具体到城市和景点的回忆卡片，本应用会提取照片内置的经纬度坐标，并调用 iOS 系统内置的地理编码接口（CLGeocoder）向 Apple 官方的地图服务器发起网络反查请求。该请求是<strong>匿名且独立于您个人身份</strong>的。系统代为请求时仅包含单纯的地理坐标，不包含您的任何账户信息，且该查询受苹果官方隐私政策的严密保护。[cite: 3, 4]
-        <span class="en-text">To display structured city and landmark names for your memory events, the application extracts coordinates embedded in your photos and utilizes the iOS framework's reverse-geocoding API (CLGeocoder) to query Apple's official location servers. This process is fully anonymous and isolated from your identity, containing only raw coordinate pairs, and is bound by Apple's strict privacy framework.[cite: 3, 4]</span>
+        为了向您呈现具体到城市和景点的回忆卡片，本应用会提取照片内置的经纬度坐标，并调用 iOS 系统内置的地理编码接口（CLGeocoder）向 Apple 官方的地图服务器发起网络反查请求。该请求是<strong>匿名且独立于您个人身份</strong>的。系统代为请求时仅包含单纯的地理坐标，不包含您的任何账户信息，且该查询受苹果官方隐私政策的严密保护。
+        <span class="en-text">To display structured city and landmark names for your memory events, the application extracts coordinates embedded in your photos and utilizes the iOS framework's reverse-geocoding API (CLGeocoder) to query Apple's official location servers. This process is fully anonymous and isolated from your identity, containing only raw coordinate pairs, and is bound by Apple's strict privacy framework.</span>
     </p>
 
     <h2>4. AI 功能调用与文本传输披露 (AI Text Processing & Third-Party API Routing)</h2>
     <p>当您主动触发本应用中的大语言模型（LLM）算力特权（如生成 AI 回忆总结、编织故事画像、进行智能寻忆搜索）时：</p>
     <ul>
-        <li><strong>仅限文本交互：</strong> 本应用<strong>绝对不会将您的原始照片文件上传至网络</strong>。向 AI 接口传输的加密数据流仅包含经过提取和浓缩的纯文本上下文（例如：时间、地点文字、日记随笔）。[cite: 3, 4]
-            <span class="en-text">Text-Only Interaction: The application strictly guarantees that your raw photo files are never uploaded to any network. The encrypted stream sent to the LLM interface contains only extracted, minimized textual context (e.g., timestamps, location names, and diary text).[cite: 3, 4]</span>
+        <li><strong>仅限文本交互：</strong> 本应用<strong>绝对不会将您的原始照片文件上传至网络</strong>。向 AI 接口传输的加密数据流仅包含经过提取和浓缩的纯文本上下文（例如：时间、地点文字、日记随笔）。
+            <span class="en-text">Text-Only Interaction: The application strictly guarantees that your raw photo files are never uploaded to any network. The encrypted stream sent to the LLM interface contains only extracted, minimized textual context (e.g., timestamps, location names, and diary text).</span>
         </li>
-        <li><strong>接口路径：</strong> 数据将通过安全的 HTTPS 协议，根据您的配置发送至官方内置的代理通道（内置 AI）或您手动指定的私有 API Key 节点。大语言模型对该文本的处理受对应算力提供商隐私准则约束，且我们已在全局策略中限制其将您的文本用于任何机器学习训练。[cite: 3, 4]
-            <span class="en-text">Routing Path: Data is transmitted via secure HTTPS protocols to either our built-in proxy gateway (official server) or your custom private API endpoint depending on your subscription settings. Text processing by the language model is bound by the respective AI provider's privacy policies.[cite: 3, 4]</span>
+        <li><strong>接口路径：</strong> 数据将通过安全的 HTTPS 协议，根据您的配置发送至官方内置的代理通道（内置 AI）或您手动指定的私有 API Key 节点。大语言模型对该文本的处理受对应算力提供商隐私准则约束，且我们已在全局策略中限制其将您的文本用于任何机器学习训练。
+            <span class="en-text">Routing Path: Data is transmitted via secure HTTPS protocols to either our built-in proxy gateway (official server) or your custom private API endpoint depending on your subscription settings. Text processing by the language model is bound by the respective AI provider's privacy policies.</span>
         </li>
     </ul>
 
     <h2>5. iCloud 私密云端备份保护 (Private iCloud CloudKit Encryption)</h2>
     <p>
-        若您升级为 Pro 账户并手动开启“iCloud 自动同步”开关，您的本地沙盒数据库将被打包上传。该数据是直接同步至您**个人所属、受 Apple 保护的 CloudKit 私有数据库容器（Private Database）**中。开发者在系统架构层面对该容器没有任何查看、读取或导出的访问权限。数据的加密密钥与解密权完全绑定于您物理设备登录的 Apple ID。[cite: 3, 4]
-        <span class="en-text">If you choose to enable the automated "iCloud Sync" feature, your encrypted local database container is synchronized directly to your personal Apple-protected CloudKit Private Database. The developer holds zero administrative or architectural access to this container. Encryption and decryption capabilities are strictly tied to the Apple ID securely authenticated on your physical hardware.[cite: 3, 4]</span>
+        若您升级为 Pro 账户并手动开启“iCloud 自动同步”开关，您的本地沙盒数据库将被打包上传。该数据是直接同步至您**个人所属、受 Apple 保护的 CloudKit 私有数据库容器（Private Database）**中。开发者在系统架构层面对该容器没有任何查看、读取或导出的访问权限。数据的加密密钥与解密权完全绑定于您物理设备登录的 Apple ID。
+        <span class="en-text">If you choose to enable the automated "iCloud Sync" feature, your encrypted local database container is synchronized directly to your personal Apple-protected CloudKit Private Database. The developer holds zero administrative or architectural access to this container. Encryption and decryption capabilities are strictly tied to the Apple ID securely authenticated on your physical hardware.</span>
     </p>
 
     <h2>6. 面容 ID 生物识别验证安全 (Biometric Face ID Authentication)</h2>
     <p>
-        为了绝对保障您的屏幕不被窥探，本应用集成了面容/密码锁功能。该验证过程完全调用 iOS 原生的 LocalAuthentication 核心框架，并在您设备独立的**安全隔离区（Secure Enclave）**内进行硬件级闭环匹配。本应用在任何时候都无法获取、读取或留存您的任何原始面部生物特征或锁屏密码。[cite: 3, 4]
-        <span class="en-text">To prevent unauthorized local visual intrusion, the application offers an optional Face ID / Password security lock. This authentication utilizes the native iOS LocalAuthentication framework and takes place strictly inside your device's isolated hardware Secure Enclave. The app never accesses, receives, or stores any biometric face patterns or passcode strings.[cite: 3, 4]</span>
+        为了绝对保障您的屏幕不被窥探，本应用集成了面容/密码锁功能。该验证过程完全调用 iOS 原生的 LocalAuthentication 核心框架，并在您设备独立的**安全隔离区（Secure Enclave）**内进行硬件级闭环匹配。本应用在任何时候都无法获取、读取或留存您的任何原始面部生物特征或锁屏密码。
+        <span class="en-text">To prevent unauthorized local visual intrusion, the application offers an optional Face ID / Password security lock. This authentication utilizes the native iOS LocalAuthentication framework and takes place strictly inside your device's isolated hardware Secure Enclave. The app never accesses, receives, or stores any biometric face patterns or passcode strings.</span>
     </p>
 
     <h2>7. 订阅状态验证与唯一匿名标识 (Subscription Verification via RevenueCat)</h2>
     <p>
-        为了精准解锁您的 Pro 账户权益，应用集成了内购组件（RevenueCat 框架）。该组件运行过程中，本应用仅传递不包含您真实姓名、手机号或 Apple ID 的**纯匿名加密收据令牌（Transaction Token）**至验证服务器，用以查询该账户的 Pro 订阅是否处于激活状态。该流程完全符合 App Store 的匿名化及安全合规标准。[cite: 3, 4]
-        <span class="en-text">To verify and manage your premium subscription entitlements, the app incorporates purchase-validation modules via the RevenueCat SDK. This process transmits solely an anonymous, encrypted transaction token—excluding your real name, device phone number, or explicit Apple ID credentials—to determine entitlement validity, adhering fully to App Store anonymization guidelines.[cite: 3, 4]</span>
+        为了精准解锁您的 Pro 账户权益，应用集成了内购组件（RevenueCat 框架）。该组件运行过程中，本应用仅传递不包含您真实姓名、手机号或 Apple ID 的**纯匿名加密收据令牌（Transaction Token）**至验证服务器，用以查询该账户的 Pro 订阅是否处于激活状态。该流程完全符合 App Store 的匿名化及安全合规标准。
+        <span class="en-text">To verify and manage your premium subscription entitlements, the app incorporates purchase-validation modules via the RevenueCat SDK. This process transmits solely an anonymous, encrypted transaction token—excluding your real name, device phone number, or explicit Apple ID credentials—to determine entitlement validity, adhering fully to App Store anonymization guidelines.</span>
     </p>
 
     <h2>8. 未成年人隐私权保护 (Children's Privacy Protection)</h2>
