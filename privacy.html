@@ -150,19 +150,19 @@
 
     <h2>5. iCloud 私密云端备份保护 (Private iCloud CloudKit Encryption)</h2>
     <p>
-        若您升级为 Pro 账户并手动开启“iCloud 自动同步”开关，您的本地沙盒数据库将被打包上传。该数据是直接同步至您**个人所属、受 Apple 保护的 CloudKit 私有数据库容器（Private Database）**中。开发者在系统架构层面对该容器没有任何查看、读取或导出的访问权限。数据的加密密钥与解密权完全绑定于您物理设备登录的 Apple ID。
+        若您升级为 Pro 账户并手动开启“iCloud 自动同步”开关，您的本地沙盒数据库将被打包上传。该数据是直接同步至您个人所属、受 Apple 保护的 CloudKit 私有数据库容器（Private Database）中。开发者在系统架构层面对该容器没有任何查看、读取或导出的访问权限。数据的加密密钥与解密权完全绑定于您物理设备登录的 Apple ID。
         <span class="en-text">If you choose to enable the automated "iCloud Sync" feature, your encrypted local database container is synchronized directly to your personal Apple-protected CloudKit Private Database. The developer holds zero administrative or architectural access to this container. Encryption and decryption capabilities are strictly tied to the Apple ID securely authenticated on your physical hardware.</span>
     </p>
 
     <h2>6. 面容 ID 生物识别验证安全 (Biometric Face ID Authentication)</h2>
     <p>
-        为了绝对保障您的屏幕不被窥探，本应用集成了面容/密码锁功能。该验证过程完全调用 iOS 原生的 LocalAuthentication 核心框架，并在您设备独立的**安全隔离区（Secure Enclave）**内进行硬件级闭环匹配。本应用在任何时候都无法获取、读取或留存您的任何原始面部生物特征或锁屏密码。
+        为了绝对保障您的屏幕不被窥探，本应用集成了面容/密码锁功能。该验证过程完全调用 iOS 原生的 LocalAuthentication 核心框架，并在您设备独立的安全隔离区（Secure Enclave）内进行硬件级闭环匹配。本应用在任何时候都无法获取、读取或留存您的任何原始面部生物特征或锁屏密码。
         <span class="en-text">To prevent unauthorized local visual intrusion, the application offers an optional Face ID / Password security lock. This authentication utilizes the native iOS LocalAuthentication framework and takes place strictly inside your device's isolated hardware Secure Enclave. The app never accesses, receives, or stores any biometric face patterns or passcode strings.</span>
     </p>
 
     <h2>7. 订阅状态验证与唯一匿名标识 (Subscription Verification via RevenueCat)</h2>
     <p>
-        为了精准解锁您的 Pro 账户权益，应用集成了内购组件（RevenueCat 框架）。该组件运行过程中，本应用仅传递不包含您真实姓名、手机号或 Apple ID 的**纯匿名加密收据令牌（Transaction Token）**至验证服务器，用以查询该账户的 Pro 订阅是否处于激活状态。该流程完全符合 App Store 的匿名化及安全合规标准。
+        为了精准解锁您的 Pro 账户权益，应用集成了内购组件（RevenueCat 框架）。该组件运行过程中，本应用仅传递不包含您真实姓名、手机号或 Apple ID 的纯匿名加密收据令牌（Transaction Token）至验证服务器，用以查询该账户的 Pro 订阅是否处于激活状态。该流程完全符合 App Store 的匿名化及安全合规标准。
         <span class="en-text">To verify and manage your premium subscription entitlements, the app incorporates purchase-validation modules via the RevenueCat SDK. This process transmits solely an anonymous, encrypted transaction token—excluding your real name, device phone number, or explicit Apple ID credentials—to determine entitlement validity, adhering fully to App Store anonymization guidelines.</span>
     </p>
 
