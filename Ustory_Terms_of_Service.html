@@ -1,192 +1,400 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ustory 服务条款与订阅协议</title>
+    <title>Ustory Terms of Use</title>
     <style>
         :root {
-            --apple-text-base: #1d1d1f;
-            --apple-text-secondary: #6e6e73;
-            --apple-border: rgba(0, 0, 0, 0.1);
-            --apple-accent: #0071e3;
+            --bg-color: #F2F2F7;
+            --container-bg: #FFFFFF;
+            --text-primary: #1C1C1E;
+            --text-secondary: #8E8E93;
+            --accent-color: #007AFF;
+            --border-color: #E5E5EA;
+            --tab-inactive-bg: #E9E9EB;
         }
-        
+
         @media (prefers-color-scheme: dark) {
             :root {
-                --apple-text-base: #f5f5f7;
-                --apple-text-secondary: #86868b;
-                --apple-border: rgba(255, 255, 255, 0.15);
-                --apple-accent: #2997ff;
+                --bg-color: #000000;
+                --container-bg: #1C1C1E;
+                --text-primary: #F2F2F7;
+                --text-secondary: #AEAEB2;
+                --accent-color: #0A84FF;
+                --border-color: #38383A;
+                --tab-inactive-bg: #2C2C2E;
             }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: transparent;
-            color: var(--apple-text-base);
-            margin: 0;
-            padding: 30px 20px 80px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
-            text-align: justify;
-            text-justify: inter-ideograph;
-        }
-        
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
-            text-align: left;
-            margin-bottom: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .update-date {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
-            text-align: left;
-            margin-bottom: 40px;
-            font-weight: 400;
+        .tab-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 14px 16px;
+            background-color: color-mix(in srgb, var(--bg-color) 85%, transparent);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-color);
         }
-        
-        h2 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 16px;
-            letter-spacing: -0.2px;
-            padding-bottom: 8px;
-            border-bottom: 0.5px solid var(--apple-border);
-        }
-        
-        p {
+
+        .tab-btn {
+            appearance: none;
+            border: none;
+            cursor: pointer;
             font-size: 14px;
-            margin-top: 0;
-            margin-bottom: 18px;
-            letter-spacing: -0.1px;
-            color: var(--apple-text-base);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 980px;
+            background-color: var(--tab-inactive-bg);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 32px 30px 60px 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        p, li {
+            font-size: 15px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
         }
 
         ul {
             padding-left: 20px;
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        
+
         li {
-            font-size: 14px;
-            margin-bottom: 14px;
-            letter-spacing: -0.1px;
+            margin-bottom: 8px;
         }
-        
-        strong {
+
+        .highlight {
             font-weight: 600;
-            color: var(--apple-text-base);
+            color: var(--text-primary);
         }
-        
-        /* 英文对照文本样式：字号略小，颜色次级，保持紧凑排版 */
-        .en-text {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
+
+        .important-notice {
+            background-color: rgba(255, 149, 0, 0.1);
+            border-left: 4px solid #FF9500;
+            padding: 16px;
+            border-radius: 4px;
+            margin: 24px 0;
+        }
+
+        .important-notice p {
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
             display: block;
-            margin-top: 6px;
-            line-height: 1.4;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ustory 服务条款与订阅协议</h1>
-    <div class="subtitle">Terms of Service & Subscription Agreement</div>
-    
-    <div class="update-date">
-        更新日期：2026/6/23
-        <span class="en-text">Last Updated: June 23, 2026</span>
+<div class="tab-bar">
+    <button class="tab-btn active" data-lang="en" onclick="switchLang('en')">English</button>
+    <button class="tab-btn" data-lang="zh-Hans" onclick="switchLang('zh-Hans')">简体中文</button>
+    <button class="tab-btn" data-lang="zh-Hant" onclick="switchLang('zh-Hant')">繁體中文</button>
+</div>
+
+<!-- ============ ENGLISH ============ -->
+<div class="container lang-section active" data-lang="en">
+    <h1>Terms of Use</h1>
+    <div class="last-updated">Last Updated: June 2026</div>
+
+    <p>Welcome to Ustory. These Terms of Use constitute a legal agreement between you and the Ustory developer (“we,” “us,” or “our”) regarding your use of the Ustory application and related services. Please read these terms carefully. By using the app, you agree to be bound by all of the following terms.</p>
+
+    <h2>1. Service Overview & No-Account Model</h2>
+    <p>Ustory is a “local-first,” privacy-focused memory and photo journaling tool. We <strong>do not require you to register or create any online account</strong>. Your membership status and premium entitlements are verified and managed primarily through your Apple App Store purchase receipts and anonymous device/subscription identifiers generated by a third-party subscription management system (such as RevenueCat).</p>
+
+    <h2>2. Ustory Pro Subscription & Shared Quotas</h2>
+    <p>If you subscribe to Ustory Pro, you unlock a range of premium features, including but not limited to advanced data analysis, a broader AI memory search scope, and higher usage quotas.</p>
+    <ul>
+        <li><span class="highlight">Shared Quota Mechanism:</span> To support your cross-device experience, if you restore the same App Store subscription identity on multiple devices, those devices will <strong>share the same total daily AI usage quota</strong> associated with that subscription.</li>
+        <li><span class="highlight">Quota Reset:</span> Daily AI usage limits reset uniformly at 00:00 UTC (Coordinated Universal Time). Any reset time shown in the app is an estimated conversion to your device’s local time zone.</li>
+        <li><span class="highlight">Identification & Sync:</span> Quota sharing depends on correct identification of your subscription identity. Before subscription status sync, purchase restoration, or identity merging is complete, individual devices may show brief delays or discrepancies in quota display or calculation, which is normal.</li>
+    </ul>
+
+    <h2>3. Reasonable Limits for Free Users</h2>
+    <p>We offer a limited experience quota to users who have not subscribed to premium services. To ensure stable operation and fair allocation of server resources:</p>
+    <ul>
+        <li>Free users have a limited number of daily AI requests.</li>
+        <li>The “Smart Memory Search (AI Search)” feature in the free version is subject to a data-scope limitation: <strong>AI will only search and analyze memories from the most recent three months</strong>. These results do not represent your complete life history or full archive. For full-timeline analysis, please upgrade to Ustory Pro.</li>
+    </ul>
+    <p>Free users’ local feature quotas are calculated on a per-device basis and do not support cross-device sharing or transfer.</p>
+
+    <h2>4. Backup & Data Recovery (Important Boundary Notice)</h2>
+    <div class="important-notice">
+        <p><span class="highlight">Special Notice: Ustory backup files (whether exported locally or synced to your private iCloud) never contain your original photo or video files.</span></p>
     </div>
+    <p>To protect your underlying privacy and avoid consuming massive cloud storage, Ustory backups only contain <strong>our structured memory event data, diary snippets, tags, companions, AI summaries, and the system-internal reference identifiers (Local Identifiers) of your photos</strong>.</p>
+    <p>When switching to a new device or restoring data, whether photos can be successfully displayed in the app depends entirely on whether the corresponding original photo files still exist in your new device’s system Photos library or iCloud Photos. We cannot recover original media that has been deleted by the system, not synced, or is permission-restricted, and we are not responsible for any resulting image display gaps.</p>
 
-    <h2>1. 协议的接受与适用范围 (Acceptance of Agreement)</h2>
-    <p>
-        欢迎使用 Ustory 应用程序（以下简称“本应用”）。下载、安装或继续使用本应用，即构成您与开发者之间具有法律约束力的协议，表明您已充分阅读、理解并同意接受本服务条款、隐私政策以及 Apple 标准最终用户许可协议（EULA）的全部约束。如果您不同意本协议中的任何条款，请立即停止使用并卸载本应用。
-        <span class="en-text">By downloading, installing, or continuing to use the Ustory application, you enter into a legally binding agreement and acknowledge that you have fully read, understood, and agreed to be bound by these Terms of Service, the Privacy Policy, and the Apple Standard End User License Agreement (EULA). If you do not agree to any of these terms, please discontinue use and uninstall the application immediately.</span>
-    </p>
-
-    <h2>2. Ustory Pro 订阅服务特权 (Ustory Pro Subscription Privileges)</h2>
-    <p>本应用为用户提供 Ustory Pro 高级订阅服务。订阅用户在授权有效期内，享有以下核心服务特权。开发者保留在未来版本中对以下服务进行优化、升级或调整的权利：</p>
+    <h2>5. AI Features & Third-Party Service Providers</h2>
+    <p>Some of Ustory’s core services (such as memory summaries, bond analysis, and smart search) rely on advanced AI Large Language Models (LLMs) for text analysis.</p>
     <ul>
-        <li><strong>隐私防护机制：</strong> 激活 FaceID 及密码保护功能。在应用退至后台时强制触发界面模糊与锁定验证，防止未经授权的访问。
-            <span class="en-text">Privacy Protection: Activate FaceID and password protection, enforcing interface blur and authentication upon backgrounding to prevent unauthorized access.</span>
-        </li>
-        <li><strong>私有云端同步：</strong> 授权系统在设备闲置期间，将您的回忆、联系人及日记数据进行高强度加密，并自动备份至您个人的 iCloud 容器中，确保数据冗余与安全。
-            <span class="en-text">Private Cloud Sync: Authorize automatic, heavily encrypted backups of your memories, contacts, and diaries to your personal iCloud container during device idle times.</span>
-        </li>
-        <li><strong>低限制智能计算 (受公平使用政策约束)：</strong> 解除基础账户的每日 AI 分析与查询调用配额限制，每日 AI 总结额度设定为 100 次。受限于服务器绝对算力成本，AI 搜索请求额度每日设定为 20 次，年度报告生成请求每日最高限额设定为 5 次。所有 AI 功能均需遵循下方第 6 条所列的公平使用政策。
-            <span class="en-text">Low-limited AI Computation (Subject to Fair Use): Remove daily limits on AI analysis and queries. AI Summary is capped at 100 times per day. AI Search quota is capped at 20 times per day, and annual report generation is capped at 5 times per day due to computational costs. All AI features are strictly subject to the Fair Use Policy outlined in Section 6.</span>
-        </li>
-        <li><strong>核心图谱全景：</strong> 解锁跨年度全时段足迹热力图及路线连线功能，提供完整维度的个人空间记忆回顾。
-            <span class="en-text">Panoramic Footprint Graph: Unlock cross-year, all-time footprint heatmaps and route connections for a complete spatial memory review.</span>
-        </li>
-        <li><strong>纯净无广与特权延续：</strong> 保证当前及未来版本中无广告介入的纯净体验，并自动继承未来新增的高级专属功能。
-            <span class="en-text">Ad-Free & Future Privileges: Guarantee an ad-free experience now and in the future, with automatic access to upcoming premium features.</span>
-        </li>
+        <li><span class="highlight">Intelligent Network Routing:</span> To balance global legal compliance, response speed, and network stability, your request may be dynamically routed to third-party AI service providers located in different regions based on your current network egress location (e.g., country/region resolution based on IP address), service availability, and internal load policies, and sent via secure transport protocols (such as HTTPS) — regardless of your specific system language or time zone settings.</li>
+        <li><span class="highlight">No Original Image Transmission:</span> We never send your original photos to third-party AI servers. AI processing is based only on necessary, de-identified textual metadata (such as dates, locations, and diary snippets).</li>
+        <li><span class="highlight">Data Scope Limitation:</span> To control costs and ensure performance, the data actually sent to the AI may be filtered, truncated, or compressed. As a result, AI responses may not cover all of your memory records.</li>
+        <li><span class="highlight">Disclaimer:</span> AI-generated content may contain misunderstandings, date-calculation errors, omissions, or illogical conclusions. Any text provided by the AI is for entertainment and nostalgic organization only. It should not be relied upon as established fact, nor does it constitute medical, legal, financial, or other professional advice.</li>
     </ul>
 
-    <h2>3. 自动续期与计费规则 (Auto-Renewal and Billing Rules)</h2>
-    <p>为遵循 Apple App Store 的相关规范，自动续期订阅服务受以下条款约束：</p>
+    <h2>6. Fair Use, Risk Control & Service Termination</h2>
+    <p>To prevent system abuse and ensure the security of the overall service ecosystem, we maintain a strict Fair Use Policy:</p>
     <ul>
-        <li><strong>款项支付：</strong> 当您确认购买决定或免费试用期届满后，订阅费用将通过您的 Apple ID 账户进行直接扣款。
-            <span class="en-text">Payment: Subscription fees will be charged directly to your Apple ID account upon confirmation of purchase or expiration of the free trial.</span>
-        </li>
-        <li><strong>自动续期说明：</strong> 您的订阅将会自动延续。Apple 计费系统将在当前订阅周期结束前 24 小时内，自动从您的账户中扣除下一周期的费用。
-            <span class="en-text">Auto-Renewal: Your subscription will automatically renew. The Apple billing system will charge your account for the next period within 24 hours prior to the end of the current period.</span>
-        </li>
-        <li><strong>取消与续订管理：</strong> 若需终止服务，您必须在当前订阅周期结束前至少 24 小时关闭自动续订。您可以随时前往 iOS 设备的“设置” -> “Apple ID” -> “订阅”界面中管理您的订阅状态。
-            <span class="en-text">Cancellation and Management: To terminate the service, you must turn off auto-renewal at least 24 hours before the end of the current period via "Settings" -> "Apple ID" -> "Subscriptions" on your iOS device.</span>
-        </li>
+        <li><span class="highlight">Usage Monitoring:</span> The system automatically records request frequency, feature call counts, and token consumption associated with anonymous subscription identifiers, and flags severely excessive requests that exceed reasonable human interaction thresholds as suspicious.</li>
+        <li><span class="highlight">Right of Determination:</span> Whether behavior constitutes abuse is determined by the developer based on relevant system-recorded data, and the developer reserves the right to conduct manual review.</li>
+        <li><span class="highlight">Handling of Violations:</span> For devices and anonymous identities that use automated scripts to spam the API, maliciously consume resources, bypass client-side policies, or engage in other destructive behavior, the developer reserves the right to immediately limit, suspend, or ban the user’s AI access or terminate their Ustory Pro experience, without refund or prior notice.</li>
     </ul>
 
-    <h2>4. 数据隐私与归属权 (Data Privacy and Ownership)</h2>
-    <p>
-        数据的绝对私密性是本应用的核心原则。您的所有照片文件、地理位置、日记明文及人物关系数据均<strong>仅在您的本地设备上进行解析与留存</strong>，或通过您授权的安全接口传输至 Apple iCloud 进行加密备份。开发者无权、也绝对不会在任何自营服务器上收集、存储、审查或出售您的个人记忆数据。
-        <br><strong>【网络 AI 功能与风控唯一例外说明】：</strong>当您主动发起网络 AI 分析（如摘要生成、智能搜索、年度图谱）时，系统会通过安全加密接口传输请求内容，并会**随请求向网关传输由内购组件生成的匿名账户标识符（User ID）**。该标识符仅在网关进行每日安全审计、计数和防止接口盗刷风控中作为校验使用，不与您的任何现实个人身份（如姓名、手机号、邮箱）绑定，不作任何用户画像建立。您的回忆，其所有权永远且唯一地归属于您本人。
-        <span class="en-text">Absolute data privacy is our core principle. All your photo files, locations, diaries, and relational data are processed and retained solely on your local device or securely encrypted via Apple iCloud. The developer has no access to, and will never collect, store, review, or sell your personal memory data.
-        <br><strong>[Exception for Network AI & Fraud Prevention]:</strong> When you initiate network-based AI features (e.g., summary, smart search, yearly charts), the request content along with an **anonymous Account Identifier (User ID) generated by the in-app purchase component** will be securely transmitted to our gateway. This identifier is used exclusively for daily security auditing, rate-limiting, and API abuse prevention. It is never linked to your real-world personal identity (such as name, phone, or email) and is not used for profile building. Your memories belong entirely and exclusively to you.</span>
-    </p>
+    <h2>7. Special Access (Special Users)</h2>
+    <p>In certain cases (such as internal testing, business collaboration, gifts/awards, or commemorative authorization), the developer may grant a small number of users implicit “Special Access.” Such identities may not be subject to the standard Ustory Pro daily quota limits.</p>
+    <p>This access is <strong>non-transferable, non-tradable, and does not constitute any long-term or permanent service commitment</strong>. For any special authorization suspected of violating fair-use principles (such as meaningless high-frequency abuse), the developer reserves the absolute right to adjust, revoke, or void such access without notice.</p>
 
-    <h2>5. 免责声明 (Disclaimer of Warranties)</h2>
-    <p>
-        本应用及相关 AI 服务按“现状（AS IS）”和“原样（AS AVAILABLE）”提供，不附带任何明示或暗示的保证。受限于设备性能、系统环境及第三方 API 的不可控性，开发者不对照片识别的绝对精准度、定位提取的零误差或数据的永久防丢失作出绝对担保。在适用法律允许的最大范围内，开发者对因使用或无法使用本应用而导致的任何直接、间接或附带损失概不负责。
-        <span class="en-text">The application and its AI services are provided on an "AS IS" and "AS AVAILABLE" basis, without warranties of any kind. Due to the unpredictability of device performance, system environments, and third-party APIs, the developer does not guarantee absolute accuracy in photo recognition, location extraction, or permanent data preservation. To the fullest extent permitted by law, the developer shall not be liable for any direct, indirect, or incidental damages arising from the use or inability to use the application.</span>
-    </p>
+    <h2>8. Auto-Renewable Subscription (App Store Rules)</h2>
+    <p>Your Ustory Pro subscription is managed and billed by Apple through your Apple Account.</p>
+    <ul>
+        <li>Within 24 hours before the end of the current billing period, Apple will automatically charge your account for the next renewal period.</li>
+        <li>You may turn off auto-renewal at least 24 hours before the end of the current period via [Settings] &gt; [Apple Account] &gt; [Subscriptions] on your iOS device.</li>
+        <li>Canceling renewal does not immediately terminate your Pro benefits; you will continue to enjoy premium services until the end of the current paid billing cycle.</li>
+    </ul>
 
-    <h2>6. 公平使用政策、AI 免责与服务终止 (Fair Use, AI Disclaimer and Termination)</h2>
-    <p>
-        <strong>【AI 内容生成免责】：</strong>本应用提供的智能总结、记忆检索及年度报告等功能均由大语言模型（LLM）驱动。<strong>AI 生成的内容属于技术推演，可能存在偶发性的事实偏差、内容错误或不准确的表达，用户应对其输入的内容及 AI 生成的结果自行承担评估与使用风险，开发者对此类内容的绝对准确性不承担法律责任。</strong>
-    </p>
-    <p>
-        <strong>【公平使用原则】：</strong>为保障所有用户的优质体验及云端代理服务器的稳定，本应用提供的 AI 配额及处理能力严格受限于合理使用原则。若系统检测到您的账户存在恶意高频调用、使用自动化工具/机器人脚本绕过客户端进行脱机刷量、触发每分钟非正常人类极限的接口请求（如一分钟内连续触发数十次请求），或其他异常消耗 Token 资源的滥用行为：
-        <br><strong>开发者保留在不另行通知的情况下，单方面限制、暂停您的 AI 使用配额，或将您的匿名标识符加入云端黑名单，乃至取消您的 Ustory Pro 高级账户特权的权利。开发者有权亲自审核此类异常账户，并对确认存在恶意盗刷行为的账户拒绝提供任何形式的退款或经济补偿。</strong>
-        <span class="en-text"><strong>[AI Content Disclaimer]:</strong> Features such as smart summaries, memory retrieval, and annual reports are driven by Large Language Models (LLMs). <strong>AI-generated outputs are results of automated processing and may occasionally present factual deviations, errors, or imprecise phrasing. Users assume all risks regarding inputs and AI-generated outputs, and the developer disclaims all legal liability for the absolute accuracy of such content.</strong>
-        <br><strong>[Fair Use Policy]:</strong> To ensure a premium experience for all users and the stability of our proxy servers, all AI quotas are strictly subject to fair use. If the system detects malicious high-frequency calls, the use of automated tools/bot scripts to bypass the client for offline spamming, sub-minute API requests exceeding human limits (e.g., dozens of calls within one minute), or any other excessive consumption of Token resources:
-        <br><strong>The developer reserves the right to unilaterally limit or suspend your AI quotas, add your anonymous identifier to the cloud blacklist, or terminate your Ustory Pro privileges at any time without prior notice. The developer reserves the right to manually audit such abnormal accounts and withhold any refunds or compensation for confirmed malicious abuse.</strong></span>
-    </p>
+    <h2>9. Disclaimer & Limitation of Liability</h2>
+    <p>This service is provided on an “As Is” and “As Available” basis. To the maximum extent permitted by applicable law, we shall not be liable for any indirect, incidental, or consequential damages arising from your use of or inability to use the app, data loss, photos failing to display, inaccurate AI results, or interruption of third-party services.</p>
 
-    <h2>7. 条款变更 (Modification of Terms)</h2>
-    <p>
-        开发者保留在必要时修改、补充或更新本协议条款的权利。修改后的协议将通过应用内更新或网页更新的方式进行公布。您在条款变更后继续使用本应用，即视为您已无条件接受所有修订后的内容。
-        <span class="en-text">The developer reserves the right to modify, supplement, or update these terms when necessary. Revised agreements will be published via in-app or webpage updates. Your continued use of the application after such changes constitutes your unconditional acceptance of all revised contents.</span>
-    </p>
+    <h2>10. Changes to These Terms</h2>
+    <p>We may modify these Terms of Use from time to time. Any material updates will be announced within the app or take effect through modification of this page. Your continued use of Ustory after such changes take effect constitutes your acceptance of the revised terms.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions, feedback, or appeals regarding these terms, please contact us by email: <a href="mailto:remember9102@163.com">remember9102@163.com</a>.</p>
+</div>
+
+<!-- ============ 简体中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hans">
+    <h1>用户协议 (Terms of Use)</h1>
+    <div class="last-updated">最后更新时间：2026 年 6 月</div>
+
+    <p>欢迎使用 Ustory。本协议是您与 Ustory 开发者（以下简称“我们”）之间关于使用 Ustory 应用程序及相关服务的法律协议。请仔细阅读本协议，当您使用本应用，即表示您同意接受以下所有条款。</p>
+
+    <h2>1. 服务说明与无账号体系</h2>
+    <p>Ustory 是一款主张“本地优先”与隐私保护的相册回忆记录工具。我们<strong>不要求用户注册或创建任何在线账号</strong>。您的基础会员身份与高级权益主要通过苹果 App Store 购买凭证、第三方订阅管理系统（如 RevenueCat）生成的匿名设备/订阅标识符进行验证与管理。</p>
+
+    <h2>2. Ustory Pro 订阅权益与共享额度</h2>
+    <p>如果您选择订阅 Ustory Pro，您将解锁一系列高级功能，包括但不限于高级数据分析、更完整的 AI 寻忆范围以及更高的功能调用额度。</p>
+    <ul>
+        <li><span class="highlight">额度共享机制：</span>为保障您的跨设备体验，若您在多台设备上恢复了同一 App Store 订阅身份，这些设备将<strong>共同共享该订阅账户对应的每日 AI 调用总额度</strong>。</li>
+        <li><span class="highlight">额度重置：</span>每日 AI 功能使用限额将严格按服务器设定的协调世界时（UTC 00:00）进行统一重置。App 内显示的重置时间仅为您设备所在时区的预估转换时间。</li>
+        <li><span class="highlight">识别与同步：</span>额度共享依赖对订阅身份的正确识别。在订阅状态同步、恢复购买或身份合并完成之前，个别设备上的额度显示或计算可能存在短暂的延迟或差异，这属于正常现象。</li>
+    </ul>
+
+    <h2>3. 免费版用户的合理限制</h2>
+    <p>我们为未订阅高级服务的免费用户提供有限的体验额度。为确保服务器资源的稳定运作与合理分配：</p>
+    <ul>
+        <li>免费版用户的 AI 每日调用次数受限。</li>
+        <li>免费版中的“智能寻忆（AI 搜索）”功能存在数据范围约束，<strong>AI 仅会检索和分析最近三个月内的回忆记录</strong>。该搜索结果不等同于您的完整人生记录或历史档案。若需全量时间线分析，请升级至 Ustory Pro。</li>
+    </ul>
+    <p>免费用户的本地功能额度将以单一设备为计算单位，且不支持跨机器的额度共享或转移。</p>
+
+    <h2>4. 备份与数据恢复（重要边界声明）</h2>
+    <div class="important-notice">
+        <p><span class="highlight">特别声明：Ustory 的备份文件（无论是导出到本地，还是同步至私人 iCloud）绝不包含您的原始照片或视频文件。</span></p>
+    </div>
+    <p>为了保护您的底层隐私并避免占用海量云端空间，Ustory 的备份内容仅包含<strong>我们经过结构化的回忆事件数据、日记片段、标签、同行人、AI 摘要及照片的系统内部引用标识（Local Identifiers）</strong>。</p>
+    <p>在更换新设备或进行数据恢复时，照片能否成功在 App 内显示，完全取决于您新设备的系统相册或 iCloud 照片库中是否仍然留存有对应的原始照片文件。我们无法恢复已被系统删除、未同步或权限受限的原始多媒体内容，亦不会对因此造成的图片显示缺失承担责任。</p>
+
+    <h2>5. AI 功能与第三方服务提供商</h2>
+    <p>Ustory 的部分核心服务（如回忆总结、羁绊分析、智能搜索）依赖前沿的人工智能大语言模型（LLM）进行文本分析。</p>
+    <ul>
+        <li><span class="highlight">智能网络路由：</span>为了兼顾全球法律合规、服务响应速度与网络稳定性，您的请求可能会根据您当前的网络出站物理位置（如基于 IP 地址的国家/地区解析）、系统可用性以及内部负载策略，被动态路由至位于不同地区的第三方 AI 服务供应商，并通过安全传输协议（如 HTTPS）进行发送（无论您是否设定了特定的系统语言或时区）。</li>
+        <li><span class="highlight">非原始图片传输：</span>我们绝不会将您的原始照片发送给第三方 AI 服务器。AI 处理仅基于必要且脱敏的文本元数据（如日期、地点、日记片段等）。</li>
+        <li><span class="highlight">数据范围限制：</span>为控制成本与保障性能，实际发送给 AI 的数据可能经过筛选、截断或压缩，因此 AI 的回答可能无法覆盖您的全部回忆记录。</li>
+        <li><span class="highlight">免责声明：</span>人工智能生成的内容可能存在理解偏差、时间换算错误、遗漏或不符合逻辑的结论。AI 提供的任何文本仅供娱乐与怀旧梳理，不应将其作为确凿事实信赖，更不构成任何医疗、法律或财务等专业建议。</li>
+    </ul>
+
+    <h2>6. 公平使用、风控机制与服务终止</h2>
+    <p>为防止系统滥用并确保整体服务生态的安全，我们设立了严格的风控策略（Fair Use Policy）：</p>
+    <ul>
+        <li><span class="highlight">使用数据监控：</span>系统会自动统计匿名订阅标识的请求频率、功能调用次数与 Token 消耗情况，并将超过正常人类合理互动阈值的重度超额请求标记为可疑状态。</li>
+        <li><span class="highlight">判定权：</span>是否构成滥用，由开发者依据系统记录的相关数据自行判断，并有权进行人工复核。</li>
+        <li><span class="highlight">违规处理：</span>对于利用自动化脚本滥刷接口、恶意消耗资源、破解绕过客户端策略或从事其他破坏性行为的设备与匿名身份，开发者保留立即限制、挂起、封禁该用户 AI 使用权限或终止 Ustory Pro 服务体验的权利，且不予退款或另行通知。</li>
+    </ul>
+
+    <h2>7. 特别访问权限（Special Users）</h2>
+    <p>在部分情况下（例如参与内部测试、商业合作、获奖赠与或纪念性质的授权），开发者可能为极少数用户授予隐式的「特别访问权限」。该类身份可能不受普通 Ustory Pro 每日额度的硬性限制。</p>
+    <p>该权限<strong>不可转让、不可交易，且不构成任何长期或永久的服务承诺</strong>。对于任何涉嫌破坏合理使用原则（如无意义高频滥用）的特别授权，开发者保留在无需通知的前提下调整、撤销或作废该权限的绝对权利。</p>
+
+    <h2>8. 自动续期订阅（App Store 规则）</h2>
+    <p>您的 Ustory Pro 订阅将由 Apple 通过您的 Apple 账户进行管理与扣费。</p>
+    <ul>
+        <li>在当前计费周期结束前的 24 小时内，Apple 会自动从您的账户扣取下一个周期的续费金额。</li>
+        <li>您可以在当前周期结束前至少 24 小时，前往 iOS 设备的 [设置] &gt; [Apple 账户] &gt; [订阅] 中关闭自动续费。</li>
+        <li>取消续期并不会立即中断您的 Pro 权益，您依然可以尊享高级服务直到当前已付款的计费周期结束。</li>
+    </ul>
+
+    <h2>9. 免责与责任限制</h2>
+    <p>本服务按“现状”（As Is）及“现有可用”（As Available）的基础提供。在适用法律允许的最大范围内，对于因使用或无法使用本应用、数据丢失、照片无法显示、AI 结果不准确或第三方服务中断而导致的任何间接、附带或后果性损失，我们不承担责任。</p>
+
+    <h2>10. 条款变更</h2>
+    <p>我们可能会不定期修改本《用户协议》。任何重大更新都将在应用内发出通知，或通过修改本页面生效。若您在修改生效后继续使用 Ustory，即视为接受已修改的用户协议。</p>
+
+    <h2>11. 联系我们</h2>
+    <p>如您对本协议有任何疑问、意见或需要申诉，请通过电子邮件与我们联系：<a href="mailto:remember9102@163.com">remember9102@163.com</a>。</p>
+</div>
+
+<!-- ============ 繁體中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hant">
+    <h1>使用者協議 (Terms of Use)</h1>
+    <div class="last-updated">最後更新時間：2026 年 6 月</div>
+
+    <p>歡迎使用 Ustory。本協議是您與 Ustory 開發者（以下簡稱「我們」）之間關於使用 Ustory 應用程式及相關服務的法律協議。請仔細閱讀本協議，當您使用本應用，即表示您同意接受以下所有條款。</p>
+
+    <h2>1. 服務說明與無帳號體系</h2>
+    <p>Ustory 是一款主張「本地優先」與隱私保護的相簿回憶記錄工具。我們<strong>不要求使用者註冊或建立任何線上帳號</strong>。您的基礎會員身分與進階權益主要透過 Apple App Store 購買憑證，以及第三方訂閱管理系統（如 RevenueCat）產生的匿名裝置／訂閱識別碼進行驗證與管理。</p>
+
+    <h2>2. Ustory Pro 訂閱權益與共享額度</h2>
+    <p>如果您選擇訂閱 Ustory Pro，您將解鎖一系列進階功能，包括但不限於進階資料分析、更完整的 AI 尋憶範圍以及更高的功能呼叫額度。</p>
+    <ul>
+        <li><span class="highlight">額度共享機制：</span>為保障您的跨裝置體驗，若您在多台裝置上還原了同一 App Store 訂閱身分，這些裝置將<strong>共同共享該訂閱帳戶對應的每日 AI 呼叫總額度</strong>。</li>
+        <li><span class="highlight">額度重置：</span>每日 AI 功能使用限額將嚴格按伺服器設定的協調世界時（UTC 00:00）進行統一重置。App 內顯示的重置時間僅為您裝置所在時區的預估換算時間。</li>
+        <li><span class="highlight">識別與同步：</span>額度共享依賴對訂閱身分的正確識別。在訂閱狀態同步、還原購買或身分合併完成之前，個別裝置上的額度顯示或計算可能出現短暫的延遲或差異，這屬於正常現象。</li>
+    </ul>
+
+    <h2>3. 免費版使用者的合理限制</h2>
+    <p>我們為未訂閱進階服務的免費使用者提供有限的體驗額度。為確保伺服器資源的穩定運作與合理分配：</p>
+    <ul>
+        <li>免費版使用者的 AI 每日呼叫次數受限。</li>
+        <li>免費版中的「智慧尋憶（AI 搜尋）」功能存在資料範圍約束，<strong>AI 僅會檢索與分析最近三個月內的回憶記錄</strong>。該搜尋結果不等同於您的完整人生記錄或歷史檔案。若需全量時間軸分析，請升級至 Ustory Pro。</li>
+    </ul>
+    <p>免費使用者的本地功能額度將以單一裝置為計算單位，且不支援跨機器的額度共享或轉移。</p>
+
+    <h2>4. 備份與資料還原（重要邊界聲明）</h2>
+    <div class="important-notice">
+        <p><span class="highlight">特別聲明：Ustory 的備份檔案（無論是匯出到本地，還是同步至私人 iCloud）絕不包含您的原始照片或影片檔案。</span></p>
+    </div>
+    <p>為了保護您的底層隱私並避免佔用海量雲端空間，Ustory 的備份內容僅包含<strong>我們經過結構化的回憶事件資料、日記片段、標籤、同行人、AI 摘要及照片的系統內部引用識別碼（Local Identifiers）</strong>。</p>
+    <p>在更換新裝置或進行資料還原時，照片能否成功在 App 內顯示，完全取決於您新裝置的系統相簿或 iCloud 照片庫中是否仍然留存有對應的原始照片檔案。我們無法還原已被系統刪除、未同步或權限受限的原始多媒體內容，亦不會對因此造成的圖片顯示缺失承擔責任。</p>
+
+    <h2>5. AI 功能與第三方服務供應商</h2>
+    <p>Ustory 的部分核心服務（如回憶總結、羈絆分析、智慧搜尋）依賴前沿的人工智慧大型語言模型（LLM）進行文字分析。</p>
+    <ul>
+        <li><span class="highlight">智慧網路路由：</span>為了兼顧全球法律合規、服務回應速度與網路穩定性，您的請求可能會根據您當前的網路出站實體位置（如基於 IP 位址的國家／地區解析）、系統可用性以及內部負載策略，被動態路由至位於不同地區的第三方 AI 服務供應商，並透過安全傳輸協定（如 HTTPS）進行傳送（無論您是否設定了特定的系統語言或時區）。</li>
+        <li><span class="highlight">非原始圖片傳輸：</span>我們絕不會將您的原始照片傳送給第三方 AI 伺服器。AI 處理僅基於必要且去識別化的文字中繼資料（如日期、地點、日記片段等）。</li>
+        <li><span class="highlight">資料範圍限制：</span>為控制成本與保障效能，實際傳送給 AI 的資料可能經過篩選、截斷或壓縮，因此 AI 的回答可能無法涵蓋您的全部回憶記錄。</li>
+        <li><span class="highlight">免責聲明：</span>人工智慧生成的內容可能存在理解偏差、時間換算錯誤、遺漏或不符合邏輯的結論。AI 提供的任何文字僅供娛樂與懷舊梳理，不應將其作為確鑿事實信賴，更不構成任何醫療、法律或財務等專業建議。</li>
+    </ul>
+
+    <h2>6. 公平使用、風控機制與服務終止</h2>
+    <p>為防止系統濫用並確保整體服務生態的安全，我們設立了嚴格的風控策略（Fair Use Policy）：</p>
+    <ul>
+        <li><span class="highlight">使用資料監控：</span>系統會自動統計匿名訂閱識別碼的請求頻率、功能呼叫次數與 Token 消耗情況，並將超過正常人類合理互動閾值的重度超額請求標記為可疑狀態。</li>
+        <li><span class="highlight">判定權：</span>是否構成濫用，由開發者依據系統記錄的相關資料自行判斷，並有權進行人工複核。</li>
+        <li><span class="highlight">違規處理：</span>對於利用自動化腳本濫刷介面、惡意消耗資源、破解繞過用戶端策略或從事其他破壞性行為的裝置與匿名身分，開發者保留立即限制、暫停、封禁該使用者 AI 使用權限或終止 Ustory Pro 服務體驗的權利，且不予退款或另行通知。</li>
+    </ul>
+
+    <h2>7. 特別存取權限（Special Users）</h2>
+    <p>在部分情況下（例如參與內部測試、商業合作、獲獎贈與或紀念性質的授權），開發者可能為極少數使用者授予隱式的「特別存取權限」。該類身分可能不受普通 Ustory Pro 每日額度的硬性限制。</p>
+    <p>該權限<strong>不可轉讓、不可交易，且不構成任何長期或永久的服務承諾</strong>。對於任何涉嫌破壞合理使用原則（如無意義高頻濫用）的特別授權，開發者保留在無需通知的前提下調整、撤銷或作廢該權限的絕對權利。</p>
+
+    <h2>8. 自動續期訂閱（App Store 規則）</h2>
+    <p>您的 Ustory Pro 訂閱將由 Apple 透過您的 Apple 帳戶進行管理與扣款。</p>
+    <ul>
+        <li>在當前計費週期結束前的 24 小時內，Apple 會自動從您的帳戶扣取下一個週期的續費金額。</li>
+        <li>您可以在當前週期結束前至少 24 小時，前往 iOS 裝置的 [設定] &gt; [Apple 帳戶] &gt; [訂閱] 中關閉自動續費。</li>
+        <li>取消續期並不會立即中斷您的 Pro 權益，您依然可以尊享進階服務直到當前已付款的計費週期結束。</li>
+    </ul>
+
+    <h2>9. 免責與責任限制</h2>
+    <p>本服務按「現狀」（As Is）及「現有可用」（As Available）的基礎提供。在適用法律允許的最大範圍內，對於因使用或無法使用本應用、資料遺失、照片無法顯示、AI 結果不準確或第三方服務中斷而導致的任何間接、附帶或後果性損失，我們不承擔責任。</p>
+
+    <h2>10. 條款變更</h2>
+    <p>我們可能會不定期修改本《使用者協議》。任何重大更新都將在應用內發出通知，或透過修改本頁面生效。若您在修改生效後繼續使用 Ustory，即視為接受已修改的使用者協議。</p>
+
+    <h2>11. 聯絡我們</h2>
+    <p>如您對本協議有任何疑問、意見或需要申訴，請透過電子郵件與我們聯絡：<a href="mailto:remember9102@163.com">remember9102@163.com</a>。</p>
+</div>
+
+<script>
+    function switchLang(lang) {
+        var sections = document.querySelectorAll('.lang-section');
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getAttribute('data-lang') === lang) {
+                sections[i].classList.add('active');
+            } else {
+                sections[i].classList.remove('active');
+            }
+        }
+
+        var buttons = document.querySelectorAll('.tab-btn');
+        for (var j = 0; j < buttons.length; j++) {
+            if (buttons[j].getAttribute('data-lang') === lang) {
+                buttons[j].classList.add('active');
+            } else {
+                buttons[j].classList.remove('active');
+            }
+        }
+
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
