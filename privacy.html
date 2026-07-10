@@ -1,182 +1,373 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ustory 隐私政策 / Privacy Policy</title>
+    <title>Ustory Privacy Policy</title>
     <style>
         :root {
-            --apple-text-base: #1d1d1f;
-            --apple-text-secondary: #6e6e73;
-            --apple-border: rgba(0, 0, 0, 0.1);
-            --apple-accent: #0071e3;
+            --bg-color: #F2F2F7;
+            --container-bg: #FFFFFF;
+            --text-primary: #1C1C1E;
+            --text-secondary: #8E8E93;
+            --accent-color: #007AFF;
+            --border-color: #E5E5EA;
+            --tab-inactive-bg: #E9E9EB;
         }
-        
+
         @media (prefers-color-scheme: dark) {
             :root {
-                --apple-text-base: #f5f5f7;
-                --apple-text-secondary: #86868b;
-                --apple-border: rgba(255, 255, 255, 0.15);
-                --apple-accent: #2997ff;
+                --bg-color: #000000;
+                --container-bg: #1C1C1E;
+                --text-primary: #F2F2F7;
+                --text-secondary: #AEAEB2;
+                --accent-color: #0A84FF;
+                --border-color: #38383A;
+                --tab-inactive-bg: #2C2C2E;
             }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: transparent; 
-            color: var(--apple-text-base);
-            margin: 0;
-            padding: 30px 20px 80px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
-            text-align: justify;
-            text-justify: inter-ideograph;
-        }
-        
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
-            text-align: left;
-            margin-bottom: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .update-date {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
-            text-align: left;
-            margin-bottom: 40px;
-            font-weight: 400;
+        .tab-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 14px 16px;
+            background-color: color-mix(in srgb, var(--bg-color) 85%, transparent);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-color);
         }
-        
-        h2 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 16px;
-            letter-spacing: -0.2px;
-            padding-bottom: 8px;
-            border-bottom: 0.5px solid var(--apple-border);
-        }
-        
-        p {
+
+        .tab-btn {
+            appearance: none;
+            border: none;
+            cursor: pointer;
             font-size: 14px;
-            margin-top: 0;
-            margin-bottom: 18px;
-            letter-spacing: -0.1px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 980px;
+            background-color: var(--tab-inactive-bg);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 32px 30px 60px 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        p, li {
+            font-size: 15px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
         }
 
         ul {
             padding-left: 20px;
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        
+
         li {
-            font-size: 14px;
-            margin-bottom: 14px;
-            letter-spacing: -0.1px;
+            margin-bottom: 8px;
         }
-        
-        strong {
+
+        .highlight {
             font-weight: 600;
-            color: var(--apple-text-base);
+            color: var(--text-primary);
         }
-        
-        .en-text {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
+
+        .important-notice {
+            background-color: rgba(255, 149, 0, 0.1);
+            border-left: 4px solid #FF9500;
+            padding: 16px;
+            border-radius: 4px;
+            margin: 24px 0;
+        }
+
+        .important-notice p {
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
             display: block;
-            margin-top: 6px;
-            line-height: 1.4;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ustory 隐私政策</h1>
-    <div class="subtitle">Privacy Policy</div>
-    
-    <div class="update-date">
-        更新日期：2026/6/23
-        <span class="en-text">Last Updated: June 23, 2026</span>
+<div class="tab-bar">
+    <button class="tab-btn active" data-lang="en" onclick="switchLang('en')">English</button>
+    <button class="tab-btn" data-lang="zh-Hans" onclick="switchLang('zh-Hans')">简体中文</button>
+    <button class="tab-btn" data-lang="zh-Hant" onclick="switchLang('zh-Hant')">繁體中文</button>
+</div>
+
+<!-- ============ ENGLISH ============ -->
+<div class="container lang-section active" data-lang="en">
+    <h1>Privacy Policy</h1>
+    <div class="last-updated">Last Updated: June 2026</div>
+
+    <p>Welcome to Ustory. We take your privacy very seriously. This Privacy Policy explains how Ustory (“we,” “us,” or “our”) handles information when you use our application. By using Ustory, you agree to the practices described in this policy.</p>
+
+    <h2>1. Core Principle: Local-First & Data Minimization</h2>
+    <p>Ustory is built around privacy protection and processes your data on your device whenever possible. <strong>We do not upload your original photos, and we do not collect personal information for advertising or identity profiling.</strong> To provide network-based AI features, verify subscriptions, and prevent abuse, we process a minimal amount of necessary technical information in an anonymized manner, as described below.</p>
+
+    <h2>2. Photos & On-Device Processing</h2>
+    <p>When you grant access to your system photo library, all core processing (such as scanning, metadata organization, and time/location clustering to build your memory timeline) is performed <strong>locally on your device</strong>.</p>
+    <ul>
+        <li>Generated memory records, contacts, diaries, and tags are stored in your device’s local database.</li>
+        <li>Your original photos are never uploaded to any server by Ustory.</li>
+    </ul>
+
+    <h2>3. Location Lookup (Apple Maps Service)</h2>
+    <p>To display city and landmark names for your memories, Ustory extracts coordinates embedded in your photos and uses the iOS system’s reverse-geocoding API (CLGeocoder) to query Apple’s official map servers. This request is anonymous, contains only coordinate data, and is governed by Apple’s privacy policy.</p>
+
+    <h2>4. AI Features & Third-Party Providers</h2>
+    <p>Some core services (such as memory summaries, bond analysis, and smart search) rely on AI Large Language Models (LLMs) for text analysis.</p>
+    <ul>
+        <li><span class="highlight">Text-Only Processing:</span> We <strong>never send your original photos</strong> to any AI provider. Only necessary, de-identified textual context (such as dates, location names, and diary snippets) is transmitted.</li>
+        <li><span class="highlight">Regional Routing:</span> Depending on your network region, service availability, and stability policies, your AI text requests may be sent via secure protocols (such as HTTPS) to third-party AI service providers located in different regions for processing.</li>
+        <li><span class="highlight">Data Scope:</span> To control costs and ensure performance, the data sent to the AI may be filtered, truncated, or compressed, so it may not cover all of your memories.</li>
+    </ul>
+
+    <h2>5. Anonymous Server-Side Data & Risk Control</h2>
+    <p>When you actively use network-based AI features, our service proxy layer may process and temporarily record the following <strong>anonymous</strong> information to provide AI features, verify entitlements, control costs, and prevent abuse:</p>
+    <ul>
+        <li>Anonymous subscription/device identifiers generated by the subscription management system.</li>
+        <li>AI feature category, request counts, and token usage.</li>
+        <li>Request frequency and abnormal usage patterns.</li>
+        <li>Approximate country/region resolved from your IP address (used only to select an appropriate AI service endpoint).</li>
+    </ul>
+    <p>This information <strong>does not include your real name, phone number, email, or precise location</strong>, and is not used to build user profiles or for advertising. It is used solely for service availability, fair use, and security.</p>
+
+    <h2>6. iCloud & Local Backup</h2>
+    <div class="important-notice">
+        <p><span class="highlight">Backups never include your original photo or video files.</span></p>
     </div>
+    <p>If you use local backup or iCloud sync, backups only include memory events, diaries, tags, companions, AI summaries, and system-internal photo reference identifiers (Local Identifiers). Original photos remain managed by your system Photos library and iCloud Photos. If iCloud sync is enabled, your data is synced directly to your personal Apple-protected CloudKit private database, to which the developer has no access.</p>
 
-    <h2>1. 核心底线与零数据收集原则 (Core Principle & Zero-Data Collection)</h2>
-    <p>
-        Ustory（以下简称“本应用”）是一款以极端保障用户隐私为根本出发点的时间线与记忆管理本地化工具。由于本应用不设置自营的中心化云端服务器，<strong>开发者不会、亦没有任何技术手段去收集、存储、审查、上传或向任何第三方披露您的个人身份信息、照片元数据、随笔日记以及社交圈子。唯一例外的是，当您调用网络 AI 功能时，系统会传输匿名的账户标识符用以进行安全审计和防盗刷风控，该标识不与您的任何现实个人身份（如姓名、手机号）绑定。</strong>
-        <span class="en-text">Ustory is an on-device memory management tool built with privacy as its primary foundation. Since the application does not utilize or maintain any developer-owned central cloud servers, the developer does not, and cannot through any technical means, collect, store, monitor, upload, or sell your personally identifiable information, photo metadata, personal diaries, or social companion networks. The sole exception is that when you activate the network AI function, the system will transmit an anonymous account identifier for security audits and anti-fraud risk control. This identifier is not linked to any of your real personal identities such as your name or mobile phone number.</span>
-    </p>
+    <h2>7. Subscriptions & Anonymous Identifiers (RevenueCat)</h2>
+    <p>To verify your premium entitlements, the app integrates a purchase-validation SDK (RevenueCat). This process transmits only an anonymous transaction token and identifier — excluding your real name or explicit Apple ID credentials — to determine subscription validity, in accordance with App Store anonymization standards.</p>
 
-    <h2>2. 照片图库与本地沙盒持久化 (On-Device Processing & SwiftData Storage)</h2>
-    <p>当您授权本应用访问您的系统相册权限后，所有数据处理均严格限制在底层沙盒内部：</p>
+    <h2>8. Face ID / Biometric Authentication</h2>
+    <p>The optional Face ID / passcode lock uses the native iOS LocalAuthentication framework and is performed entirely within your device’s Secure Enclave. Ustory never accesses, receives, or stores your biometric data or passcode.</p>
+
+    <h2>9. Children’s Privacy</h2>
+    <p>Given our local-first architecture, we do not build user profiles in the cloud. The app does not, and cannot, knowingly collect private data from children under the age of 13 (or the age defined by your jurisdiction).</p>
+
+    <h2>10. Data Retention & Deletion</h2>
+    <p>Your memory data is stored on your device, and you may delete it at any time within the app. Anonymous server-side records (such as usage counts and token usage) are automatically expired and removed after a limited period, and are used only for fair-use and security purposes.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any material changes will be announced within the app or take effect through modification of this page. Your continued use of Ustory after such changes constitutes your acceptance of the revised policy.</p>
+
+    <h2>12. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us by email: <a href="mailto:remember9102@163.com">remember9102@163.com</a>.</p>
+</div>
+
+<!-- ============ 简体中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hans">
+    <h1>隐私政策</h1>
+    <div class="last-updated">最后更新时间：2026 年 6 月</div>
+
+    <p>欢迎使用 Ustory。我们高度重视您的隐私。本隐私政策说明了当您使用本应用时，Ustory（以下简称“我们”）如何处理相关信息。使用 Ustory 即表示您同意本政策所述的做法。</p>
+
+    <h2>1. 核心原则：本地优先与最小化收集</h2>
+    <p>Ustory 以隐私保护为核心，尽可能在本地设备处理数据。<strong>我们不会上传您的原始照片，也不会收集用于广告或身份画像的个人信息。</strong>为提供联网 AI 功能、校验订阅并防止滥用，我们会以匿名、最小化的方式处理必要的技术信息，详见下文。</p>
+
+    <h2>2. 照片与本地处理</h2>
+    <p>当您授权访问系统相册后，所有核心处理（如扫描、元数据整理、时间与空间聚类以构建回忆时间线）均<strong>在您的本地设备上完成</strong>。</p>
     <ul>
-        <li><strong>本地计算：</strong> 照片的增量扫描、元数据整理、时间与空间的聚类分析（Clustering）完全利用您本地设备的芯片算力进行离线运算，绝对不会有任何图片流或视频流被传输至网络。
-            <span class="en-text">Local Computation: Incremental gallery scanning, metadata organization, and spatial-temporal clustering analysis are executed entirely offline utilizing your device's local processor. No image or video stream is ever transmitted over the network.</span>
-        </li>
-        <li><strong>沙盒持久化：</strong> 生成的回忆事件卡片、人物昵称及随笔备忘，均通过加密技术保存在您本机的 SwiftData 沙盒数据库内，数据的控制权完全属于您的物理设备。
-            <span class="en-text">Sandbox Storage: Generated memory records, companion profiles, and diaries are persisted securely within your device's local SwiftData database container. Full data control remains strictly inside your physical hardware.</span>
-        </li>
+        <li>生成的回忆记录、联系人、日记与标签均保存在您本机的数据库中。</li>
+        <li>Ustory 绝不会将您的原始照片上传至任何服务器。</li>
     </ul>
 
-    <h2>3. 地理位置反查服务的隐私合规 (Reverse Geocoding & Apple Maps Service)</h2>
-    <p>
-        为了向您呈现具体到城市和景点的回忆卡片，本应用会提取照片内置的经纬度坐标，并调用 iOS 系统内置的地理编码接口（CLGeocoder）向 Apple 官方的地图服务器发起网络反查请求。该请求是<strong>匿名且独立于您个人身份</strong>的。系统代为请求时仅包含单纯的地理坐标，不包含您的任何账户信息，且该查询受苹果官方隐私政策的严密保护。
-        <span class="en-text">To display structured city and landmark names for your memory events, the application extracts coordinates embedded in your photos and utilizes the iOS framework's reverse-geocoding API (CLGeocoder) to query Apple's official location servers. This process is fully anonymous and isolated from your identity, containing only raw coordinate pairs, and is bound by Apple's strict privacy framework.</span>
-    </p>
+    <h2>3. 地理位置反查（Apple 地图服务）</h2>
+    <p>为向您呈现回忆的城市与景点名称，Ustory 会提取照片内置的坐标，并调用 iOS 系统的地理编码接口（CLGeocoder）向 Apple 官方地图服务器发起反查。该请求匿名且仅包含坐标数据，受 Apple 隐私政策保护。</p>
 
-    <h2>4. AI 功能调用与文本传输披露 (AI Text Processing & Third-Party API Routing)</h2>
-    <p>当您主动触发本应用中的大语言模型（LLM）算力特权（如生成 AI 回忆总结、编织故事画像、进行智能寻忆搜索）时：</p>
+    <h2>4. AI 功能与第三方服务提供商</h2>
+    <p>部分核心服务（如回忆总结、羁绊分析、智能搜索）依赖人工智能大语言模型（LLM）进行文本分析。</p>
     <ul>
-        <li><strong>仅限文本交互：</strong> 本应用<strong>绝对不会将您的原始照片文件上传至网络</strong>。向 AI 接口传输的加密数据流仅包含经过提取和浓缩的纯文本上下文（例如：时间、地点文字、日记随笔）。
-            <span class="en-text">Text-Only Interaction: The application strictly guarantees that your raw photo files are never uploaded to any network. The encrypted stream sent to the LLM interface contains only extracted, minimized textual context (e.g., timestamps, location names, and diary text).</span>
-        </li>
-        <li><strong>接口路径：</strong> 数据将通过安全的 HTTPS 协议，根据您的配置发送至官方内置的代理通道（内置 AI）或您手动指定的私有 API Key 节点。大语言模型对该文本的处理受对应算力提供商隐私准则约束，且我们已在全局策略中限制其将您的文本用于任何机器学习训练。
-            <span class="en-text">Routing Path: Data is transmitted via secure HTTPS protocols to either our built-in proxy gateway (official server) or your custom private API endpoint depending on your subscription settings. Text processing by the language model is bound by the respective AI provider's privacy policies.</span>
-        </li>
+        <li><span class="highlight">仅文本处理：</span>我们<strong>绝不会向任何 AI 服务商发送您的原始照片</strong>，仅传输必要且脱敏的文本上下文（如日期、地点名称、日记片段等）。</li>
+        <li><span class="highlight">区域路由：</span>根据您的网络所在地区、服务可用性与稳定性策略，您的 AI 文本请求可能通过安全传输协议（如 HTTPS）发送至位于不同地区的第三方 AI 服务提供商进行处理。</li>
+        <li><span class="highlight">数据范围：</span>为控制成本与保障性能，发送给 AI 的数据可能经过筛选、截断或压缩，因此可能无法覆盖您的全部回忆记录。</li>
     </ul>
 
-    <h2>5. iCloud 私密云端备份保护 (Private iCloud CloudKit Encryption)</h2>
-    <p>
-        若您升级为 Pro 账户并手动开启“iCloud 自动同步”开关，您的本地沙盒数据库将被打包上传。该数据是直接同步至您个人所属、受 Apple 保护的 CloudKit 私有数据库容器（Private Database）中。开发者在系统架构层面对该容器没有任何查看、读取或导出的访问权限。数据的加密密钥与解密权完全绑定于您物理设备登录的 Apple ID。
-        <span class="en-text">If you choose to enable the automated "iCloud Sync" feature, your encrypted local database container is synchronized directly to your personal Apple-protected CloudKit Private Database. The developer holds zero administrative or architectural access to this container. Encryption and decryption capabilities are strictly tied to the Apple ID securely authenticated on your physical hardware.</span>
-    </p>
+    <h2>5. 服务端匿名数据与风控</h2>
+    <p>当您主动使用需要联网的 AI 功能时，为提供 AI 功能、验证权益、控制成本并防止滥用，我们的服务代理层可能会处理并临时记录以下<strong>匿名</strong>信息：</p>
+    <ul>
+        <li>由订阅管理系统生成的匿名订阅/设备标识符。</li>
+        <li>AI 功能的调用类别、调用次数与 token 用量。</li>
+        <li>请求频率与异常使用特征。</li>
+        <li>基于 IP 地址粗略解析的国家/地区（仅用于选择合适的 AI 服务节点）。</li>
+    </ul>
+    <p>上述信息<strong>不包含您的真实姓名、手机号、邮箱或精确位置</strong>，也不会用于构建用户画像或广告用途，仅用于服务可用性、公平使用与安全风控。</p>
 
-    <h2>6. 面容 ID 生物识别验证安全 (Biometric Face ID Authentication)</h2>
-    <p>
-        为了绝对保障您的屏幕不被窥探，本应用集成了面容/密码锁功能。该验证过程完全调用 iOS 原生的 LocalAuthentication 核心框架，并在您设备独立的安全隔离区（Secure Enclave）内进行硬件级闭环匹配。本应用在任何时候都无法获取、读取或留存您的任何原始面部生物特征或锁屏密码。
-        <span class="en-text">To prevent unauthorized local visual intrusion, the application offers an optional Face ID / Password security lock. This authentication utilizes the native iOS LocalAuthentication framework and takes place strictly inside your device's isolated hardware Secure Enclave. The app never accesses, receives, or stores any biometric face patterns or passcode strings.</span>
-    </p>
+    <h2>6. iCloud 与本地备份</h2>
+    <div class="important-notice">
+        <p><span class="highlight">备份绝不包含您的原始照片或视频文件。</span></p>
+    </div>
+    <p>若您使用本地备份或 iCloud 同步功能，备份内容仅包含回忆事件、日记、标签、同行人、AI 摘要以及照片的系统内部引用标识（Local Identifiers）。原始照片仍由您的系统相册与 iCloud 照片负责保存。若开启 iCloud 同步，您的数据将直接同步至您个人所属、受 Apple 保护的 CloudKit 私有数据库，开发者对该容器没有任何访问权限。</p>
 
-    <h2>7. 订阅状态验证与唯一匿名标识 (Subscription Verification via RevenueCat)</h2>
-    <p>
-        为了精准解锁您的 Pro 账户权益，应用集成了内购组件（RevenueCat 框架）。该组件运行过程中，本应用仅传递不包含您真实姓名、手机号或 Apple ID 的纯匿名加密收据令牌（Transaction Token）至验证服务器，用以查询该账户的 Pro 订阅是否处于激活状态。该流程完全符合 App Store 的匿名化及安全合规标准。
-        <span class="en-text">To verify and manage your premium subscription entitlements, the app incorporates purchase-validation modules via the RevenueCat SDK. This process transmits solely an anonymous, encrypted transaction token—excluding your real name, device phone number, or explicit Apple ID credentials—to determine entitlement validity, adhering fully to App Store anonymization guidelines.</span>
-    </p>
+    <h2>7. 订阅与匿名标识（RevenueCat）</h2>
+    <p>为校验您的高级权益，本应用集成了内购验证组件（RevenueCat）。该过程仅传递匿名的交易令牌与标识符（不包含您的真实姓名或明确的 Apple ID 凭据）以查询订阅有效性，符合 App Store 的匿名化标准。</p>
 
-    <h2>8. 未成年人隐私权保护 (Children's Privacy Protection)</h2>
-    <p>
-        由于本应用的本地化运行机制，我们不会在云端收集任何人的个人数据。因此，本应用不会、也无法收集包含 13 周岁（或您所在法域规定的未成年人年龄）以下儿童的任何隐私信息。
-        <span class="en-text">Given our core architecture of local data processing, we do not compile user profiles in the cloud. Consequently, the application does not, and cannot, harvest or process any private metrics belonging to children under the age of 13.</span>
-    </p>
+    <h2>8. 面容 ID / 生物识别验证</h2>
+    <p>可选的面容 ID / 密码锁功能完全调用 iOS 原生的 LocalAuthentication 框架，并在您设备的安全隔离区（Secure Enclave）内完成。Ustory 在任何时候都无法获取、读取或留存您的生物特征或锁屏密码。</p>
 
-    <h2>9. 隐私政策的变更 (Amendments to This Policy)</h2>
-    <p>
-        开发者保留因系统架构更迭、技术演进或苹果政策调整而随时修订本隐私政策的权利。任何修订内容均会在本页面及应用内显著位置进行即时公告。在变更发布后继续使用本应用，即代表您知悉并同意经修订后的隐私协议内容。
-        <span class="en-text">The developer reserves the right to amend this Privacy Policy to reflect software evolution, architectural updates, or regulatory adjustments. Any revisions will be seamlessly rendered on this page. Your continued usage of the application post-publication marks your voluntary adherence to the revised terms.</span>
-    </p>
+    <h2>9. 未成年人隐私保护</h2>
+    <p>基于本地优先的架构，我们不会在云端建立用户画像。本应用不会、也无法故意收集 13 周岁（或您所在法域规定年龄）以下儿童的隐私数据。</p>
+
+    <h2>10. 数据留存与删除</h2>
+    <p>您的回忆数据保存在您的设备上，您可以随时在应用内删除。服务端的匿名记录（如调用次数、token 用量）将在有限期限后自动过期并删除，且仅用于公平使用与安全目的。</p>
+
+    <h2>11. 隐私政策的变更</h2>
+    <p>我们可能会不定期更新本隐私政策。任何重大变更都将在应用内发出通知，或通过修改本页面生效。若您在变更后继续使用 Ustory，即视为接受修订后的政策。</p>
+
+    <h2>12. 联系我们</h2>
+    <p>如您对本隐私政策有任何疑问，请通过电子邮件与我们联系：<a href="mailto:remember9102@163.com">remember9102@163.com</a>。</p>
+</div>
+
+<!-- ============ 繁體中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hant">
+    <h1>隱私政策</h1>
+    <div class="last-updated">最後更新時間：2026 年 6 月</div>
+
+    <p>歡迎使用 Ustory。我們高度重視您的隱私。本隱私政策說明了當您使用本應用時，Ustory（以下簡稱「我們」）如何處理相關資訊。使用 Ustory 即表示您同意本政策所述的做法。</p>
+
+    <h2>1. 核心原則：本地優先與最小化收集</h2>
+    <p>Ustory 以隱私保護為核心，盡可能在本地裝置處理資料。<strong>我們不會上傳您的原始照片，也不會收集用於廣告或身分畫像的個人資訊。</strong>為提供聯網 AI 功能、驗證訂閱並防止濫用，我們會以匿名、最小化的方式處理必要的技術資訊，詳見下文。</p>
+
+    <h2>2. 照片與本地處理</h2>
+    <p>當您授權存取系統相簿後，所有核心處理（如掃描、中繼資料整理、時間與空間聚類以建立回憶時間軸）均<strong>在您的本地裝置上完成</strong>。</p>
+    <ul>
+        <li>產生的回憶記錄、聯絡人、日記與標籤均儲存在您本機的資料庫中。</li>
+        <li>Ustory 絕不會將您的原始照片上傳至任何伺服器。</li>
+    </ul>
+
+    <h2>3. 地理位置反查（Apple 地圖服務）</h2>
+    <p>為向您呈現回憶的城市與景點名稱，Ustory 會擷取照片內建的座標，並呼叫 iOS 系統的地理編碼介面（CLGeocoder）向 Apple 官方地圖伺服器發起反查。該請求匿名且僅包含座標資料，受 Apple 隱私政策保護。</p>
+
+    <h2>4. AI 功能與第三方服務供應商</h2>
+    <p>部分核心服務（如回憶總結、羈絆分析、智慧搜尋）依賴人工智慧大型語言模型（LLM）進行文字分析。</p>
+    <ul>
+        <li><span class="highlight">僅文字處理：</span>我們<strong>絕不會向任何 AI 服務商傳送您的原始照片</strong>，僅傳輸必要且去識別化的文字中繼資料（如日期、地點名稱、日記片段等）。</li>
+        <li><span class="highlight">區域路由：</span>根據您的網路所在地區、服務可用性與穩定性策略，您的 AI 文字請求可能透過安全傳輸協定（如 HTTPS）傳送至位於不同地區的第三方 AI 服務供應商進行處理。</li>
+        <li><span class="highlight">資料範圍：</span>為控制成本與保障效能，傳送給 AI 的資料可能經過篩選、截斷或壓縮，因此可能無法涵蓋您的全部回憶記錄。</li>
+    </ul>
+
+    <h2>5. 伺服器端匿名資料與風控</h2>
+    <p>當您主動使用需要聯網的 AI 功能時，為提供 AI 功能、驗證權益、控制成本並防止濫用，我們的服務代理層可能會處理並暫時記錄以下<strong>匿名</strong>資訊：</p>
+    <ul>
+        <li>由訂閱管理系統產生的匿名訂閱/裝置識別碼。</li>
+        <li>AI 功能的呼叫類別、呼叫次數與 token 用量。</li>
+        <li>請求頻率與異常使用特徵。</li>
+        <li>基於 IP 位址粗略解析的國家/地區（僅用於選擇合適的 AI 服務節點）。</li>
+    </ul>
+    <p>上述資訊<strong>不包含您的真實姓名、手機號碼、電子郵件或精確位置</strong>，也不會用於建立使用者畫像或廣告用途，僅用於服務可用性、公平使用與安全風控。</p>
+
+    <h2>6. iCloud 與本地備份</h2>
+    <div class="important-notice">
+        <p><span class="highlight">備份絕不包含您的原始照片或影片檔案。</span></p>
+    </div>
+    <p>若您使用本地備份或 iCloud 同步功能，備份內容僅包含回憶事件、日記、標籤、同行人、AI 摘要以及照片的系統內部引用識別碼（Local Identifiers）。原始照片仍由您的系統相簿與 iCloud 照片負責保存。若開啟 iCloud 同步，您的資料將直接同步至您個人所屬、受 Apple 保護的 CloudKit 私有資料庫，開發者對該容器沒有任何存取權限。</p>
+
+    <h2>7. 訂閱與匿名識別（RevenueCat）</h2>
+    <p>為驗證您的進階權益，本應用整合了內購驗證元件（RevenueCat）。該過程僅傳遞匿名的交易權杖與識別碼（不包含您的真實姓名或明確的 Apple ID 憑證）以查詢訂閱有效性，符合 App Store 的匿名化標準。</p>
+
+    <h2>8. 面容 ID / 生物辨識驗證</h2>
+    <p>可選的面容 ID / 密碼鎖功能完全呼叫 iOS 原生的 LocalAuthentication 框架，並在您裝置的安全隔離區（Secure Enclave）內完成。Ustory 在任何時候都無法取得、讀取或留存您的生物特徵或鎖定密碼。</p>
+
+    <h2>9. 未成年人隱私保護</h2>
+    <p>基於本地優先的架構，我們不會在雲端建立使用者畫像。本應用不會、也無法故意收集 13 歲（或您所在法域規定年齡）以下兒童的隱私資料。</p>
+
+    <h2>10. 資料留存與刪除</h2>
+    <p>您的回憶資料保存在您的裝置上，您可以隨時在應用內刪除。伺服器端的匿名記錄（如呼叫次數、token 用量）將在有限期限後自動過期並刪除，且僅用於公平使用與安全目的。</p>
+
+    <h2>11. 隱私政策的變更</h2>
+    <p>我們可能會不定期更新本隱私政策。任何重大變更都將在應用內發出通知，或透過修改本頁面生效。若您在變更後繼續使用 Ustory，即視為接受修訂後的政策。</p>
+
+    <h2>12. 聯絡我們</h2>
+    <p>如您對本隱私政策有任何疑問，請透過電子郵件與我們聯絡：<a href="mailto:remember9102@163.com">remember9102@163.com</a>。</p>
+</div>
+
+<script>
+    function switchLang(lang) {
+        var sections = document.querySelectorAll('.lang-section');
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getAttribute('data-lang') === lang) {
+                sections[i].classList.add('active');
+            } else {
+                sections[i].classList.remove('active');
+            }
+        }
+
+        var buttons = document.querySelectorAll('.tab-btn');
+        for (var j = 0; j < buttons.length; j++) {
+            if (buttons[j].getAttribute('data-lang') === lang) {
+                buttons[j].classList.add('active');
+            } else {
+                buttons[j].classList.remove('active');
+            }
+        }
+
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
