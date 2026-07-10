@@ -1,133 +1,247 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ustory 技术支持 / Support</title>
+    <title>Ustory Support</title>
     <style>
         :root {
-            --apple-text-base: #1d1d1f;
-            --apple-text-secondary: #6e6e73;
-            --apple-bg: transparent;
-            --apple-card-bg: #f2f2f7;
-            --apple-accent: #0071e3;
-            --apple-accent-hover: #0077ED;
+            --bg-color: #F2F2F7;
+            --container-bg: #FFFFFF;
+            --card-bg: #F2F2F7;
+            --text-primary: #1C1C1E;
+            --text-secondary: #8E8E93;
+            --accent-color: #007AFF;
+            --accent-hover: #0077ED;
+            --border-color: #E5E5EA;
+            --tab-inactive-bg: #E9E9EB;
         }
-        
+
         @media (prefers-color-scheme: dark) {
             :root {
-                --apple-text-base: #f5f5f7;
-                --apple-text-secondary: #86868b;
-                --apple-card-bg: #1c1c1e;
-                --apple-accent: #2997ff;
-                --apple-accent-hover: #3E9EFF;
+                --bg-color: #000000;
+                --container-bg: #1C1C1E;
+                --card-bg: #2C2C2E;
+                --text-primary: #F2F2F7;
+                --text-secondary: #AEAEB2;
+                --accent-color: #0A84FF;
+                --accent-hover: #3E9EFF;
+                --border-color: #38383A;
+                --tab-inactive-bg: #2C2C2E;
             }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--apple-bg); 
-            color: var(--apple-text-base);
-            margin: 0;
-            padding: 40px 20px 80px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
+        }
+
+        .tab-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 14px 16px;
+            background-color: color-mix(in srgb, var(--bg-color) 85%, transparent);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            appearance: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 980px;
+            background-color: var(--tab-inactive-bg);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 40px 30px 80px 30px;
+            box-sizing: border-box;
             text-align: center;
         }
-        
+
         h1 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 10px;
             margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
-        
+
         .subtitle {
-            font-size: 14px;
-            color: var(--apple-text-secondary);
-            margin-bottom: 40px;
-            font-weight: 500;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         p {
             font-size: 15px;
             margin-top: 0;
             margin-bottom: 20px;
-            letter-spacing: -0.1px;
-            color: var(--apple-text-base);
-        }
-
-        /* 英文对照文本样式 */
-        .en-text {
-            font-size: 13px;
-            color: var(--apple-text-secondary);
-            display: block;
-            margin-top: 6px;
-            line-height: 1.4;
+            color: var(--text-primary);
         }
 
         .contact-card {
-            background-color: var(--apple-card-bg);
+            background-color: var(--card-bg);
             border-radius: 20px;
             padding: 30px 20px;
-            margin: 40px auto;
-            max-width: 400px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            margin: 32px auto;
+            max-width: 420px;
         }
 
-        /* 可点击的邮箱按钮 */
         .email-btn {
             display: inline-block;
-            background-color: var(--apple-accent);
-            color: #ffffff;
-            font-size: 17px;
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
-            padding: 14px 28px;
+            padding: 14px 26px;
             border-radius: 24px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             transition: background-color 0.2s ease;
+            word-break: break-all;
         }
 
         .email-btn:active {
-            background-color: var(--apple-accent-hover);
+            background-color: var(--accent-hover);
+        }
+
+        .card-note {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: var(--text-secondary);
         }
 
         .tips {
             font-size: 13px;
-            color: var(--apple-text-secondary);
+            color: var(--text-secondary);
             margin-top: 30px;
+            line-height: 1.5;
+        }
+
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ustory 官方技术支持</h1>
-    <div class="subtitle">Official Support & Feedback</div>
+<div class="tab-bar">
+    <button class="tab-btn active" data-lang="en" onclick="switchLang('en')">English</button>
+    <button class="tab-btn" data-lang="zh-Hans" onclick="switchLang('zh-Hans')">简体中文</button>
+    <button class="tab-btn" data-lang="zh-Hant" onclick="switchLang('zh-Hant')">繁體中文</button>
+</div>
 
-    <p>
-        感谢您使用 Ustory！无论是遇到技术故障、内购订阅疑问，还是有任何让产品变得更好的新功能建议，都欢迎随时与我联系。
-        <span class="en-text">Thank you for using Ustory! Whether you encounter technical issues, subscription inquiries, or have feature requests to make the app better, please feel free to reach out.</span>
-    </p>
+<!-- ============ ENGLISH ============ -->
+<div class="container lang-section active" data-lang="en">
+    <h1>Ustory Support</h1>
+    <div class="subtitle">Official Support &amp; Feedback</div>
+
+    <p>Thank you for using Ustory! Whether you run into a technical issue, have a question about subscriptions, or want to suggest a new feature to make the app better, you are always welcome to reach out.</p>
 
     <div class="contact-card">
-        <!-- href="mailto:..." 可以让用户点击后直接唤起系统的邮件 App -->
-        <a href="mailto:remember9102@163.com?subject=Ustory%20App%20Support" class="email-btn">
+        <a href="mailto:remember9102@163.com?subject=Ustory%20Support%20Request" class="email-btn">
             remember9102@163.com
         </a>
-        <p style="margin-bottom: 0; font-size: 14px;">
-            我会在收到邮件后的3-5个工作日内回复您。
-            <span class="en-text">I will personally reply to you within 3-5 business days.</span>
-        </p>
+        <p class="card-note">I will do my best to reply within 3–5 business days.</p>
     </div>
 
     <div class="tips">
-        提示：为了帮助我更快地定位和解决问题，发送邮件时请尽量附上您的<b>设备型号</b>（如 iPhone 16 Pro）与 <b>iOS 系统版本</b>。
-        <span class="en-text">Tip: To help me locate and resolve issues faster, please include your <b>Device Model</b> and <b>iOS Version</b> in your email.</span>
+        Tip: To help me locate and resolve issues faster, please include your <strong>device model</strong> (e.g. iPhone 16 Pro) and <strong>iOS version</strong> in your email.
     </div>
+</div>
+
+<!-- ============ 简体中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hans">
+    <h1>Ustory 官方技术支持</h1>
+    <div class="subtitle">支持与反馈</div>
+
+    <p>感谢您使用 Ustory！无论是遇到技术故障、内购订阅疑问，还是有任何让产品变得更好的新功能建议，都欢迎随时与我联系。</p>
+
+    <div class="contact-card">
+        <a href="mailto:remember9102@163.com?subject=Ustory%20Support%20Request" class="email-btn">
+            remember9102@163.com
+        </a>
+        <p class="card-note">我会尽力在 3–5 个工作日内回复您。</p>
+    </div>
+
+    <div class="tips">
+        提示：为了帮助我更快地定位和解决问题，发送邮件时请尽量附上您的<strong>设备型号</strong>（如 iPhone 16 Pro）与 <strong>iOS 系统版本</strong>。
+    </div>
+</div>
+
+<!-- ============ 繁體中文 ============ -->
+<div class="container lang-section" data-lang="zh-Hant">
+    <h1>Ustory 官方技術支援</h1>
+    <div class="subtitle">支援與意見回饋</div>
+
+    <p>感謝您使用 Ustory！無論是遇到技術故障、內購訂閱疑問，還是有任何讓產品變得更好的新功能建議，都歡迎隨時與我聯絡。</p>
+
+    <div class="contact-card">
+        <a href="mailto:remember9102@163.com?subject=Ustory%20Support%20Request" class="email-btn">
+            remember9102@163.com
+        </a>
+        <p class="card-note">我會盡力在 3–5 個工作天內回覆您。</p>
+    </div>
+
+    <div class="tips">
+        提示：為了協助我更快地定位並解決問題，寄送郵件時請盡量附上您的<strong>裝置型號</strong>（如 iPhone 16 Pro）與 <strong>iOS 系統版本</strong>。
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        var sections = document.querySelectorAll('.lang-section');
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getAttribute('data-lang') === lang) {
+                sections[i].classList.add('active');
+            } else {
+                sections[i].classList.remove('active');
+            }
+        }
+
+        var buttons = document.querySelectorAll('.tab-btn');
+        for (var j = 0; j < buttons.length; j++) {
+            if (buttons[j].getAttribute('data-lang') === lang) {
+                buttons[j].classList.add('active');
+            } else {
+                buttons[j].classList.remove('active');
+            }
+        }
+
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
